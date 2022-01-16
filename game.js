@@ -6,8 +6,8 @@ var game =
 	getCanvasInfo: function() {
 		return {
 			ctx: $('#gameCanvas')[0].getContext('2d'),
-			width: $('#gameCanvas').width(),
-			height: $('#gameCanvas').height()
+			width: $('#gameCanvas')[0].width,
+			height: $('#gameCanvas')[0].height
 		}
 	},
 	
@@ -16,10 +16,12 @@ var game =
 		this.seed = this.getSeed();
 		
 		var canvas_size = Math.min(600, $(window).width()*0.85, $(window).height()*0.85);
-		$('#gameCanvas').height(canvas_size);
-		$('#gameCanvas').width(canvas_size);
+		$('#gameCanvas')[0].height = canvas_size;
+		$('#gameCanvas')[0].width = canvas_size;
 		
-		this.infoText = 'Today is ' + this.seed.asText();
+		$('#gameCanvas')[0].addEventListener('mousedown', function(e) {
+			utility.setCursorPosition(this, e);
+		});
 		
 		draw.everything();
 	},

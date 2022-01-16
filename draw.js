@@ -16,11 +16,11 @@ var draw =
 	{
 		$('#infoText').css('color', this.colors.white);
 		$('#infoText').text(game.infoText);
-		this.background();
-		this.map();
+		this.draw_bg();
+		this.draw_map();
 	},
 	
-	background: function()
+	draw_bg: function()
 	{
 		
 		//body color
@@ -32,10 +32,10 @@ var draw =
 		canvasInfo.ctx.fillRect(0, 0, canvasInfo.width, canvasInfo.height);
 	},
 	
-	map: function()
+	draw_map: function()
 	{
 		var canvasInfo = game.getCanvasInfo();
-		var spaceSize = canvasInfo.width/map.space_count_horiz;
+		var spaceSize = canvasInfo.width/map.spaces_per_area_horizontal;
 		var fontSize = spaceSize*0.9;
 		canvasInfo.ctx.font = Math.floor(fontSize) + "px Courier New";
 		canvasInfo.ctx.textAlign = "center";

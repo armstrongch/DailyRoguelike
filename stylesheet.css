@@ -1,7 +1,10 @@
-body {
-	background-color: black;
-}
 
 #gameCanvas {
-	outline: 2px solid white;
+	outline: 2px solid black;
+	/* https://stackoverflow.com/questions/5127937/how-to-center-canvas-in-html5 */
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
 }

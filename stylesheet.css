@@ -1,0 +1,7 @@
+body {
+	background-color: black;
+}
+
+#gameCanvas {
+	outline: 2px solid white;
+}

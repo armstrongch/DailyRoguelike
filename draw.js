@@ -27,6 +27,6 @@ var draw =
 		var canvasInfo = game.getCanvasInfo();
 		var ctx = canvasInfo.ctx;
 		ctx.fillStyle = this.colors.white;
-		ctx.fillRect(0, 0, canvasInfo.width, canvasInfo.height);
+		ctx.fillRect(0, 0, canvasInfo.width*0.9, canvasInfo.height*0.9);
 	}
 }

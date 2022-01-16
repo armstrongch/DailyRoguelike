@@ -10,6 +10,13 @@ var draw =
 		red: '#D72638'
 	},
 	
+	everything: function()
+	{
+		$('#infoText').css('color', this.colors.white);
+		$('#infoText').text(game.infoText);
+		this.background();
+	},
+	
 	background: function()
 	{
 		

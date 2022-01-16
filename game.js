@@ -1,5 +1,7 @@
 var game = 
 {
+	seed: {},
+	infoText: "",
 	
 	getCanvasInfo: function() {
 		return {
@@ -11,9 +13,28 @@ var game =
 	
 	load: function()
 	{
+		this.seed = this.getSeed();
+		
 		var canvas_size = Math.min(600, $(window).width()*0.8, $(window).height()*0.8);
 		$('#gameCanvas').height(canvas_size);
 		$('#gameCanvas').width(canvas_size);
-		draw.background();
+		
+		this.infoText = 'Today is ' + this.seed.asText();
+		
+		draw.everything();
+	},
+	
+	getSeed: function()
+	{
+		var date = new Date();
+		return {
+			day: date.getDate(),
+			month: date.getMonth(),
+			year: date.getFullYear(),
+			asText: function()
+			{
+				return this.year + "-" + this.month+1 + "-" + this.day;
+			}
+		};
 	}
 };

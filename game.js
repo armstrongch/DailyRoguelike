@@ -15,7 +15,7 @@ var game =
 	{
 		this.seed = this.getSeed();
 		
-		var canvas_size = Math.min(600, $(window).width()*0.9, $(window).height()*0.9);
+		var canvas_size = Math.min(600, $(window).width()*0.85, $(window).height()*0.85);
 		$('#gameCanvas').height(canvas_size);
 		$('#gameCanvas').width(canvas_size);
 		

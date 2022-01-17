@@ -23,6 +23,12 @@ var game =
 			utility.setCursorPosition(this, e);
 		});
 		
+		window.addEventListener('keydown', function(e) {
+			utility.handleKeyDown(e);
+		});
+
+		map.generate();
+		
 		draw.everything();
 	},
 	

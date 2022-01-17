@@ -6,5 +6,10 @@ var utility =
 		draw.mousePosition.x = event.clientX - rect.left;
 		draw.mousePosition.y = event.clientY - rect.top;
 		draw.everything();
+	},
+	
+	handleKeyDown: function(event)
+	{
+		console.log(event);
 	}
 };

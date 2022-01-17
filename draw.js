@@ -36,13 +36,13 @@ var draw =
 	{
 		var canvasInfo = game.getCanvasInfo();
 		var spaceSize = canvasInfo.width/map.spaces_per_area_horizontal;
-		var fontSize = spaceSize*0.9;
+		var fontSize = spaceSize*0.7;
 		canvasInfo.ctx.font = Math.floor(fontSize) + "px Courier New";
 		canvasInfo.ctx.textAlign = "center";
 		canvasInfo.ctx.textBaseline = "middle";
 		canvasInfo.ctx.fillStyle = this.colors.purple;
 		
-		var mapAreaString = test.getTestMapArea();
+		var mapAreaString = map.areas[player.current_area.x][player.current_area.y]; //test.getTestMapArea();
 		var stringIndex = 0;
 		
 		var mouse_h = Math.floor(this.mousePosition.y / spaceSize) + 0.5;
@@ -55,6 +55,11 @@ var draw =
 				var print_pos_x = w*spaceSize;
 				var print_pos_y = h*spaceSize;
 				var textToPrint = mapAreaString.substring(stringIndex, stringIndex+1);
+				if ((Math.floor(h) == player.current_space.x)
+				&& (Math.floor(w) == player.current_space.y))
+				{
+					textToPrint = "@";
+				}
 				if ((h == mouse_h) && (w == mouse_w))
 				{
 					textToPrint = "[" + textToPrint + "]";

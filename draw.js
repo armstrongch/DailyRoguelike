@@ -55,8 +55,8 @@ var draw =
 				var print_pos_x = w*spaceSize;
 				var print_pos_y = h*spaceSize;
 				var textToPrint = mapAreaString.substring(stringIndex, stringIndex+1);
-				if ((Math.floor(h) == player.current_space.x)
-				&& (Math.floor(w) == player.current_space.y))
+				if ((Math.floor(w) == player.current_space.x)
+				&& (Math.floor(h) == player.current_space.y))
 				{
 					textToPrint = "@";
 				}

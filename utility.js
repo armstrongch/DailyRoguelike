@@ -10,6 +10,24 @@ var utility =
 	
 	handleKeyDown: function(event)
 	{
-		console.log(event);
+		switch(event.code)
+		{
+			case "KeyW":
+			case "ArrowUp":
+				player.move(0, -1);
+				break;
+			case "KeyS":
+			case "ArrowDown":
+				player.move(0, 1);
+				break;
+			case "KeyA":
+			case "ArrowLeft":
+				player.move(-1, 0);
+				break;
+			case "KeyD":
+			case "ArrowRight":
+				player.move(1, 0);
+				break;
+		}
 	}
 };

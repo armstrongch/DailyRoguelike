@@ -30,6 +30,8 @@ var game =
 		map.generate();
 		
 		draw.everything();
+		
+		objects.initialize();
 	},
 	
 	getSeed: function()

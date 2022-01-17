@@ -38,15 +38,20 @@ var map =
 				|| ((horizPos == this.areas_per_map_horizontal - 1) && (x == this.spaces_per_area_horizontal - 1))
 				|| ((vertPos == this.areas_per_map_vertical - 1) && (y == this.spaces_per_area_vertical - 1)))
 				{
-					areaString += "R";
+					areaString += "O";
 				}
 				else
 				{
 					areaString += " ";
 				}
 			}
-			areaString += "\n";
 		}
 		return areaString;
+	},
+	
+	getCharAtPosition: function(mapArea, x, y)
+	{
+		var charPos = y*10 + x;
+		return mapArea.substring(charPos, charPos+1);
 	}
 };

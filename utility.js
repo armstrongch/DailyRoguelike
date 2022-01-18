@@ -60,18 +60,18 @@ var utility =
 		if ( Math.abs( xDiff ) > Math.abs( yDiff ) ) {/*most significant*/
 			if ( xDiff > 0 ) {
 				/* right swipe */ 
-				player.move(1, 0);
+				player.move(-1, 0);
 			} else {
 				/* left swipe */
-				player.move(-1, 0);
+				player.move(1, 0);
 			}                       
 		} else {
 			if ( yDiff > 0 ) {
 				/* down swipe */ 
-				player.move(0, 1);
+				player.move(0, -1);
 			} else { 
 				/* up swipe */
-				player.move(0, -1);
+				player.move(0, 1);
 			}                                                                 
 		}
 		/* reset values */

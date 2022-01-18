@@ -1,5 +1,7 @@
 body {
 	font-size: large;
+	/*https://usefulangle.com/post/278/html-disable-pull-to-refresh-with-css*/
+	overscroll-behavior-y: contain;
 }
 
 div {

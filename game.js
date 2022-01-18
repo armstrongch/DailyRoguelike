@@ -25,6 +25,14 @@ var game =
 		window.addEventListener('keydown', function(e) {
 			utility.handleKeyDown(e);
 		});
+		
+		window.addEventListener('touchstart', function(e) {
+			utility.handleTouchStart(e);
+		}, false);
+		
+		window.addEventListener('touchmove', function(e) {
+			utility.handleTouchMove(e);
+		}, false);
 
 		map.generate();
 		

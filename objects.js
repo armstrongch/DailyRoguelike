@@ -11,8 +11,8 @@ var objects =
 		});
 		
 		this.list.push({
-			objChar: "O",
-			desc: "Ocean Water",
+			objChar: "W",
+			desc: "Cold, Unforgiving Ocean Waves",
 			walkable: false
 		});
 	},

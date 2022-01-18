@@ -36,7 +36,7 @@ var player =
 		{
 			var targetSpace = objects.getObjectByChar(
 				map.getCharAtPosition(
-					map.areas[this.current_area.x][this.current_area.y], target_x, target_y));
+					this.current_area.x, this.current_area.y, target_x, target_y));
 			console.log(targetSpace);
 			if (targetSpace.walkable)
 			{

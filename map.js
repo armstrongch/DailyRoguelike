@@ -10,13 +10,12 @@ var map =
 	
 	shovelledSpaces: [],
 	
-	shovelSpace: function(area_x, area_y, space_x, space_y, fade)
+	shovelSpace: function(area_x, area_y, space_x, space_y)
 	{
 		this.shovelledSpaces.push({
 			map_area: {x: area_x, y: area_y},
 			space: {x: space_x, y: space_y},
-			fade: fade,
-			fade_counter: fade ? 100 : -1
+			fade_counter: 15
 		});
 	},
 	

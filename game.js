@@ -1,7 +1,6 @@
 var game = 
 {
 	seed: {},
-	infoText: "",
 	
 	getCanvasInfo: function() {
 		return {

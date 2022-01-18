@@ -1,5 +1,7 @@
 var draw = 
 {
+	infoText: "",
+	
 	// https://coolors.co/38023b-a288e3-136f63-f34213-d72638
 	colors:
 	{
@@ -14,15 +16,15 @@ var draw =
 	
 	everything: function()
 	{
-		$('#infoText').css('color', this.colors.white);
-		$('#infoText').text(game.infoText);
+		this.infoText = "";
 		this.draw_bg();
 		this.draw_map();
+		$('#infoText').css('color', this.colors.white);
+		$('#infoText').text(this.infoText);
 	},
 	
 	draw_bg: function()
 	{
-		
 		//body color
 		$('body').css('background-color', this.colors.purple);
 		
@@ -62,7 +64,6 @@ var draw =
 					canvasInfo.ctx.fillStyle = this.colors.white;
 				}
 				
-				
 				var print_pos_x = w*spaceSize;
 				var print_pos_y = h*spaceSize;
 				var textToPrint = mapAreaString.substring(stringIndex, stringIndex+1);
@@ -71,9 +72,16 @@ var draw =
 				{
 					textToPrint = "@";
 				}
+				
 				if ((h == mouse_h) && (w == mouse_w))
 				{
+					var obj = objects.getObjectByChar(textToPrint);
+					this.infoText = obj.desc;
 					textToPrint = "[" + textToPrint + "]";
+					if (obj.special_color)
+					{
+						ctx.fillStype = obj.color;
+					}
 				}
 				canvasInfo.ctx.fillText(textToPrint, print_pos_x, print_pos_y);
 				stringIndex += 1;

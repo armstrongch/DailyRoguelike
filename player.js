@@ -9,6 +9,19 @@ var player =
 	
 	move: function(x_mod, y_mod)
 	{
+		currentSpaceChar = map.getCharAtPosition(
+			this.current_area.x, this.current_area.y,
+			this.current_space.x, this.current_space.y);
+		if (currentSpaceChar == " ")
+		{
+			map.updateCharAtPosition(
+				this.current_area.x, this.current_area.y,
+				this.current_space.x, this.current_space.y, "f");
+		}
+		
+		draw.mousePosition.x = -1;
+		draw.mousePosition.y = -1;
+		
 		var target_x = this.current_space.x + x_mod;
 		var target_y = this.current_space.y + y_mod;
 		
@@ -39,7 +52,7 @@ var player =
 					this.current_area.x, this.current_area.y, target_x, target_y));
 			console.log(targetSpace);
 			if (targetSpace.walkable)
-			{
+			{	
 				this.current_space.x = target_x;
 				this.current_space.y = target_y;
 			}

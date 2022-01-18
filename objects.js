@@ -8,7 +8,7 @@ var objects =
 	{
 		this.list.push({
 			objChar: "@",
-			desc: "A Wayward Traveller",
+			desc: "a lonely traveller",
 			special_color: false,
 			walkable: false,
 			process: this.default_process
@@ -16,7 +16,7 @@ var objects =
 		
 		this.list.push({
 			objChar: " ",
-			desc: "Empty",
+			desc: "empty",
 			special_color: false,
 			walkable: true,
 			process: this.default_process
@@ -24,7 +24,7 @@ var objects =
 		
 		this.list.push({
 			objChar: "W",
-			desc: "Ocean",
+			desc: "cold, unforgiving ocean [W]aves",
 			special_color: false,
 			walkable: false,
 			process: this.default_process
@@ -32,7 +32,7 @@ var objects =
 		
 		this.list.push({
 			objChar: "F",
-			desc: "Fire",
+			desc: "warm, inviting camp [F]ire",
 			special_color: true,
 			color: draw.colors.orange,
 			walkable: false,
@@ -41,7 +41,7 @@ var objects =
 		
 		this.list.push({
 			objChar: "f",
-			desc: "Footprints",
+			desc: "[f]ootprints",
 			special_color: false,
 			walkable: true,
 			process: this.default_process

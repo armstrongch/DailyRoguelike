@@ -2,6 +2,9 @@ var game =
 {
 	seed: {},
 	
+	state: "title",
+	//possible states: title, overworld
+	
 	getCanvasInfo: function() {
 		return {
 			ctx: $('#gameCanvas')[0].getContext('2d'),

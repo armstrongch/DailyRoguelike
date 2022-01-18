@@ -86,5 +86,14 @@ var map =
 		var charPos = space_y*10 + space_x;
 		var areaString = this.areas[map_x][map_y];
 		return areaString.substring(charPos, charPos+1);
+	},
+	
+	updateCharAtPosition: function(map_x, map_y, space_x, space_y, newChar)
+	{
+		var charPos = space_y*10 + space_x;
+		var areaString = this.areas[map_x][map_y];
+		var beginningOfString = areaString.substring(0, charPos);
+		var endOfString = areaString.substring(charPos+1);
+		this.areas[map_x][map_y] = beginningOfString + newChar + endOfString;
 	}
 };

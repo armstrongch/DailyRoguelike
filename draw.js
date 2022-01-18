@@ -30,23 +30,6 @@ var draw =
 		var canvasInfo = game.getCanvasInfo();
 		canvasInfo.ctx.fillStyle = this.colors.white;
 		canvasInfo.ctx.fillRect(0, 0, canvasInfo.width, canvasInfo.height);
-		
-		//shovelled spaces
-		for (let x = 0; x < map.spaces_per_area_horizontal; x += 1)
-		{
-			for (let y = 0; y < map.spaces_per_area_vertical; y += 1)
-			{
-				if (map.spaceIsShovelled(player.current_area.x, player.current_area.y, x, y))
-				{
-					canvasInfo.ctx.fillStyle = this.colors.purple;
-					canvasInfo.ctx.fillRect(
-						x*canvasInfo.width/map.spaces_per_area_horizontal,
-						y*canvasInfo.height/map.spaces_per_area_vertical,
-						canvasInfo.width/map.spaces_per_area_horizontal,
-						canvasInfo.height/map.spaces_per_area_vertical);
-				}
-			}
-		}
 	},
 	
 	draw_map: function()
@@ -57,7 +40,6 @@ var draw =
 		canvasInfo.ctx.font = Math.floor(fontSize) + "px Courier New";
 		canvasInfo.ctx.textAlign = "center";
 		canvasInfo.ctx.textBaseline = "middle";
-		canvasInfo.ctx.fillStyle = this.colors.purple;
 		
 		var mapAreaString = map.areas[player.current_area.x][player.current_area.y]; //test.getTestMapArea();
 		var stringIndex = 0;
@@ -69,6 +51,18 @@ var draw =
 		{
 			for (let w = 0.5; w < 10; w += 1)
 			{
+				canvasInfo.ctx.fillStyle = this.colors.purple;
+				if (map.spaceIsShovelled(player.current_area.x, player.current_area.y, Math.floor(w-0.5), Math.floor(h-0.5)))
+				{	
+					canvasInfo.ctx.fillRect(
+						Math.floor((w-0.5)*canvasInfo.width/map.spaces_per_area_horizontal),
+						Math.floor((h-0.5)*canvasInfo.height/map.spaces_per_area_vertical),
+						Math.ceil(canvasInfo.width/map.spaces_per_area_horizontal),
+						Math.ceil(canvasInfo.height/map.spaces_per_area_vertical));
+					canvasInfo.ctx.fillStyle = this.colors.white;
+				}
+				
+				
 				var print_pos_x = w*spaceSize;
 				var print_pos_y = h*spaceSize;
 				var textToPrint = mapAreaString.substring(stringIndex, stringIndex+1);

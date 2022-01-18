@@ -12,7 +12,7 @@ var objects =
 		
 		this.list.push({
 			objChar: "W",
-			desc: "Cold, Unforgiving Ocean Waves",
+			desc: "Ocean",
 			walkable: false
 		});
 	},

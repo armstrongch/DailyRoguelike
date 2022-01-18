@@ -35,7 +35,7 @@ var draw =
 	draw_title: function()
 	{
 		var canvasInfo = game.getCanvasInfo();
-		var fontSize = canvasInfo.width/30;
+		var fontSize = canvasInfo.width/25;
 		canvasInfo.ctx.font = Math.floor(fontSize) + "px Courier New";
 		canvasInfo.ctx.textAlign = "center";
 		canvasInfo.ctx.textBaseline = "middle";
@@ -44,7 +44,8 @@ var draw =
 		var text_to_draw = [];
 		text_to_draw.push("Lonely Winter Sunsets");
 		text_to_draw.push("");
-		text_to_draw.push("a game by Chris \"Turd Boomerang\" Armstrong");
+		text_to_draw.push("a game by");
+		text_to_draw.push("Chris \"Turd Boomerang\" Armstrong");
 		text_to_draw.push("");
 		text_to_draw.push("");
 		text_to_draw.push("");
@@ -54,12 +55,12 @@ var draw =
 		text_to_draw.push("Arrow keys to move, Left-click for info");
 		text_to_draw.push("");
 		text_to_draw.push("Mobile:");
-		text_to_draw.push("Mobile: Swipe to move, Tap for info");
+		text_to_draw.push("Swipe to move, Tap for info");
 		text_to_draw.push("");
 		text_to_draw.push("Click/Tap to Continue");
 		for (let i = 0; i < text_to_draw.length; i += 1)
 		{
-			canvasInfo.ctx.fillText(text_to_draw[i], canvasInfo.width/2, canvasInfo.height*0.3 + fontSize*1.1*i);
+			canvasInfo.ctx.fillText(text_to_draw[i], canvasInfo.width/2, canvasInfo.height*0.2 + fontSize*1.1*i);
 		}
 	},
 	

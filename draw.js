@@ -54,7 +54,7 @@ var draw =
 			for (let w = 0.5; w < 10; w += 1)
 			{
 				canvasInfo.ctx.fillStyle = this.colors.purple;
-				if (map.spaceIsShovelled(player.current_area.x, player.current_area.y, Math.floor(w-0.5), Math.floor(h-0.5)))
+				if (snow.spaceIsShovelled(player.current_area.x, player.current_area.y, Math.floor(w-0.5), Math.floor(h-0.5)))
 				{	
 					canvasInfo.ctx.fillRect(
 						Math.floor((w-0.5)*canvasInfo.width/map.spaces_per_area_horizontal),
@@ -73,15 +73,15 @@ var draw =
 					textToPrint = "@";
 				}
 				
+				var obj = objects.getObjectByChar(textToPrint);
+				if (obj.special_color)
+				{
+					canvasInfo.ctx.fillStyle = obj.color;
+				}
 				if ((h == mouse_h) && (w == mouse_w))
 				{
-					var obj = objects.getObjectByChar(textToPrint);
 					this.infoText = obj.desc;
 					textToPrint = "[" + textToPrint + "]";
-					if (obj.special_color)
-					{
-						ctx.fillStype = obj.color;
-					}
 				}
 				canvasInfo.ctx.fillText(textToPrint, print_pos_x, print_pos_y);
 				stringIndex += 1;

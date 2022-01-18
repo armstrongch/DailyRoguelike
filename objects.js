@@ -2,27 +2,32 @@ var objects =
 {
 	list: [],
 	
+	default_process: function(area_x, area_y, x, y) { /*do nothing*/ },
+	
 	initialize: function()
 	{
 		this.list.push({
 			objChar: "@",
 			desc: "A Wayward Traveller",
 			special_color: false,
-			walkable: false
+			walkable: false,
+			process: this.default_process
 		});
 		
 		this.list.push({
 			objChar: " ",
 			desc: "Empty",
 			special_color: false,
-			walkable: true
+			walkable: true,
+			process: this.default_process
 		});
 		
 		this.list.push({
 			objChar: "W",
 			desc: "Ocean",
 			special_color: false,
-			walkable: false
+			walkable: false,
+			process: this.default_process
 		});
 		
 		this.list.push({
@@ -30,14 +35,16 @@ var objects =
 			desc: "Fire",
 			special_color: true,
 			color: draw.colors.orange,
-			walkable: false
+			walkable: false,
+			process: fire.process
 		});
 		
 		this.list.push({
 			objChar: "f",
 			desc: "Footprints",
 			special_color: false,
-			walkable: true
+			walkable: true,
+			process: this.default_process
 		});
 	},
 	

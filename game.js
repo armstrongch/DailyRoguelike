@@ -35,10 +35,15 @@ var game =
 		}, false);
 
 		map.generate();
-		
-		draw.everything();
-		
 		objects.initialize();
+		map.process_all();
+		draw.everything();
+	},
+	
+	end_turn: function()
+	{
+		map.process_all();
+		draw.everything();
 	},
 	
 	getSeed: function()

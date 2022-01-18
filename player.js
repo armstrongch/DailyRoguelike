@@ -57,6 +57,6 @@ var player =
 				this.current_space.y = target_y;
 			}
 		}
-		draw.everything();
+		game.end_turn();
 	}
 };

@@ -35,7 +35,7 @@ var draw =
 	draw_title: function()
 	{
 		var canvasInfo = game.getCanvasInfo();
-		var fontSize = canvasInfo.width/25;
+		var fontSize = canvasInfo.width/15;
 		canvasInfo.ctx.font = Math.floor(fontSize) + "px Courier New";
 		canvasInfo.ctx.textAlign = "center";
 		canvasInfo.ctx.textBaseline = "middle";
@@ -45,17 +45,10 @@ var draw =
 		text_to_draw.push("Lonely Winter Sunsets");
 		text_to_draw.push("");
 		text_to_draw.push("a game by");
-		text_to_draw.push("Chris \"Turd Boomerang\" Armstrong");
+		text_to_draw.push("Chris TB Armstrong");
 		text_to_draw.push("");
-		text_to_draw.push("");
-		text_to_draw.push("");
-		text_to_draw.push("");
-		text_to_draw.push("");
-		text_to_draw.push("Desktop:");
-		text_to_draw.push("Arrow keys to move, Left-click for info");
-		text_to_draw.push("");
-		text_to_draw.push("Mobile:");
-		text_to_draw.push("Swipe to move, Tap for info");
+		text_to_draw.push("Swipe/Arrows to Move");
+		text_to_draw.push("Click/Tap for Info");
 		text_to_draw.push("");
 		text_to_draw.push("Click/Tap to Continue");
 		for (let i = 0; i < text_to_draw.length; i += 1)

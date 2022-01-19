@@ -15,5 +15,10 @@ var fire =
 				}
 			}
 		}
-	}
+	},
+	interact: function(area_x, area_y, x, y)
+	{
+		player.heat.value = Math.min(player.heat.value + 15, player.heat.max);
+		draw.infoText = "the [F]ire restores 15 body heat.";
+	},
 };

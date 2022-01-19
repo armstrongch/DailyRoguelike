@@ -16,7 +16,6 @@ var draw =
 	
 	everything: function()
 	{
-		this.infoText = "";
 		this.draw_bg();
 		switch(game.state)
 		{
@@ -25,11 +24,18 @@ var draw =
 				break;
 			case "overworld":
 				this.draw_map();
+				$('#infoText').css('color', this.colors.white);
+				$('#infoText').text(this.infoText);
+				this.stats_text();
 				break;
 		}
-		
-		$('#infoText').css('color', this.colors.white);
-		$('#infoText').text(this.infoText);
+	},
+	
+	stats_text: function()
+	{
+		var statsText = "Body Heat: " + player.heat.value + ", Energy: " + player.energy.value + ", Wood: " + player.wood.value + ", Food: " + player.food.value;
+		$('#statsText').css('color', this.colors.white);
+		$('#statsText').text(statsText);
 	},
 	
 	draw_title: function()
@@ -88,7 +94,8 @@ var draw =
 			for (let w = 0.5; w < 10; w += 1)
 			{
 				canvasInfo.ctx.fillStyle = this.colors.purple;
-				if (snow.spaceIsShovelled(player.current_area.x, player.current_area.y, Math.floor(w-0.5), Math.floor(h-0.5)))
+				var shovelled = snow.spaceIsShovelled(player.current_area.x, player.current_area.y, Math.floor(w-0.5), Math.floor(h-0.5))
+				if (shovelled)
 				{	
 					canvasInfo.ctx.fillRect(
 						Math.floor((w-0.5)*canvasInfo.width/map.spaces_per_area_horizontal),
@@ -115,6 +122,10 @@ var draw =
 				if ((h == mouse_h) && (w == mouse_w))
 				{
 					this.infoText = obj.desc;
+					if (!shovelled)
+					{
+						this.infoText += " (snow)";
+					}
 					textToPrint = "[" + textToPrint + "]";
 				}
 				canvasInfo.ctx.fillText(textToPrint, print_pos_x, print_pos_y);

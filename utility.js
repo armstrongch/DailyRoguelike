@@ -54,13 +54,13 @@ var utility =
 	  return evt.touches ||             // browser API
 			 evt.originalEvent.touches; // jQuery
 	},                                                  
-																			 
+
 	handleTouchStart: function(evt) {
-		const firstTouch = this.getTouches(evt)[0];                                      
-		this.xDown = firstTouch.clientX;                                      
-		this.yDown = firstTouch.clientY;                                      
+		const firstTouch = this.getTouches(evt)[0];                                    
+		this.xDown = firstTouch.clientX;                                    
+		this.yDown = firstTouch.clientY;                                    
 	},                                           
-																			 
+
 	handleTouchMove: function(evt) {
 		switch(game.state)
 		{

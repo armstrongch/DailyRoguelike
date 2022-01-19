@@ -3,6 +3,7 @@ var objects =
 	list: [],
 	
 	default_process: function(area_x, area_y, x, y) { /*do nothing*/ },
+	default_interact: function(area_x, area_y, x, y) { /*do nothing*/ },
 	
 	initialize: function()
 	{
@@ -11,7 +12,8 @@ var objects =
 			desc: "a lonely traveller",
 			special_color: false,
 			walkable: false,
-			process: this.default_process
+			process: this.default_process,
+			interact: this.default_interact
 		});
 		
 		this.list.push({
@@ -19,7 +21,8 @@ var objects =
 			desc: "empty",
 			special_color: false,
 			walkable: true,
-			process: this.default_process
+			process: this.default_process,
+			interact: this.default_interact
 		});
 		
 		this.list.push({
@@ -27,7 +30,8 @@ var objects =
 			desc: "cold, unforgiving ocean [W]aves",
 			special_color: false,
 			walkable: false,
-			process: this.default_process
+			process: this.default_process,
+			interact: ocean.interact
 		});
 		
 		this.list.push({
@@ -36,7 +40,8 @@ var objects =
 			special_color: true,
 			color: draw.colors.orange,
 			walkable: false,
-			process: fire.process
+			process: fire.process,
+			interact: fire.interact,
 		});
 		
 		this.list.push({
@@ -44,7 +49,8 @@ var objects =
 			desc: "[f]ootprints",
 			special_color: false,
 			walkable: true,
-			process: this.default_process
+			process: this.default_process,
+			interact: footprints.interact
 		});
 	},
 	

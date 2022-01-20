@@ -25,9 +25,9 @@ var map =
 			}
 		}
 		
-		this.updateCharAtPosition(player.current_area.x, player.current_area.y, 3, 3, "F");
-		this.updateCharAtPosition(player.current_area.x, player.current_area.y, 3, 6, "F");
-		this.updateCharAtPosition(player.current_area.x, player.current_area.y, 6, 3, "F");
+		this.updateCharAtPosition(player.current_area.x, player.current_area.y, 2, 3, "F");
+		this.updateCharAtPosition(player.current_area.x, player.current_area.y, 3, 7, "F");
+		this.updateCharAtPosition(player.current_area.x, player.current_area.y, 6, 3, "P");
 		this.updateCharAtPosition(player.current_area.x, player.current_area.y, 6, 6, "F");
 	},
 	

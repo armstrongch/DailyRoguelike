@@ -34,6 +34,11 @@ var draw =
 	stats_text: function()
 	{
 		var statsText = "Body Heat: " + player.heat.value + ", Energy: " + player.energy.value + ", Wood: " + player.wood.value + ", Food: " + player.food.value;
+		var itemChar = objects.getObjectByChar(player.item);
+		if (itemChar != " ")
+		{
+			statsText += ", Item: " + itemChar.desc;
+		}
 		$('#statsText').css('color', this.colors.white);
 		$('#statsText').text(statsText);
 	},

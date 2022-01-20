@@ -4,6 +4,7 @@ var player =
 	energy:	{ value: 500,	max: 500 },
 	wood:	{ value: 0,		max: 100 },
 	food:	{ value: 0,		max: 100 },
+	item:	" ",
 	
 	current_area: {
 		x: -1, y: -1

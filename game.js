@@ -1,7 +1,5 @@
 var game = 
 {
-	seed: {},
-	
 	state: "title",
 	//possible states: title, overworld
 	
@@ -14,9 +12,7 @@ var game =
 	},
 	
 	load: function()
-	{
-		this.seed = this.getSeed();
-		
+	{	
 		var canvas_size = Math.min(600, $(window).width()*0.85, $(window).height()*0.75);
 		$('#gameCanvas')[0].height = canvas_size;
 		$('#gameCanvas')[0].width = canvas_size;
@@ -48,18 +44,4 @@ var game =
 		map.process_all();
 		draw.everything();
 	},
-	
-	getSeed: function()
-	{
-		var date = new Date();
-		return {
-			day: date.getDate(),
-			month: date.getMonth(),
-			year: date.getFullYear(),
-			asText: function()
-			{
-				return this.year + "-" + this.month+1 + "-" + this.day;
-			}
-		};
-	}
 };

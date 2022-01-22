@@ -60,9 +60,19 @@ var player =
 			moved_area = true;
 		}
 		
-		var targetObj = objects.getObjectByChar(
-			map.getCharAtPosition(
-				this.current_area.x, this.current_area.y, target_x, target_y));
+		if (moved_area)
+		{
+			var targetObj = objects.getObjectByChar(
+				map.getCharAtPosition(
+					this.current_area.x, this.current_area.y, this.current_space.x, this.current_space.y));
+
+		}
+		else
+		{
+			var targetObj = objects.getObjectByChar(
+				map.getCharAtPosition(
+					this.current_area.x, this.current_area.y, target_x, target_y));
+		}
 		
 		if ((targetObj.walkable)
 		&& (!moved_area))

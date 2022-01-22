@@ -37,7 +37,7 @@ var draw =
 		var itemChar = objects.getObjectByChar(player.item);
 		if (itemChar != " ")
 		{
-			statsText += ", Item: " + itemChar.desc;
+			statsText += ", Item: " + itemChar.item_name;
 		}
 		$('#statsText').css('color', this.colors.white);
 		$('#statsText').text(statsText);

@@ -73,6 +73,9 @@ var player =
 		
 		targetObj.interact(this.current_area.x, this.current_area.y, target_x, target_y);
 		
+		player_item = objects.getObjectByChar(player.item);
+		player_item.use_item(this.current_area.x, this.current_area.y, this.current_space.x, this.current_space.y, x_mod, y_mod);
+		
 		if (!snow.spaceIsShovelled(this.current_area.x, this.current_area.y, this.current_space.x, this.current_space.y))
 		{
 			draw.infoText += " snow reduces your body heat. ";

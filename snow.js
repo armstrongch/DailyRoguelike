@@ -26,9 +26,7 @@ var snow =
 	
 	shovelSpace: function(area_x, area_y, space_x, space_y)
 	{
-		if ((space_x >= 0) && (space_y >= 0)
-		&& (space_x < map.spaces_per_area_horizontal)
-		&& (space_y < map.spaces_per_area_vertical))
+		if (map.space_in_area(space_x, space_y))
 		{
 			if (!this.spaceIsShovelled(area_x, area_y, space_x, space_y))
 			{

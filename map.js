@@ -25,10 +25,14 @@ var map =
 			}
 		}
 		
-		this.updateCharAtPosition(player.current_area.x, player.current_area.y, 2, 3, "F");
-		this.updateCharAtPosition(player.current_area.x, player.current_area.y, 3, 7, "F");
-		this.updateCharAtPosition(player.current_area.x, player.current_area.y, 6, 3, "P");
-		this.updateCharAtPosition(player.current_area.x, player.current_area.y, 6, 6, "F");
+		this.updateCharAtPosition(player.current_area.x, player.current_area.y, 5, 4, "F");
+		this.updateCharAtPosition(player.current_area.x, player.current_area.y, 5, 6, "S");
+		this.updateCharAtPosition(player.current_area.x, player.current_area.y, 6, 6, "n");
+	},
+	
+	space_in_area: function(x, y)
+	{
+		return ((x >= 0) && (y >= 0) && (x < this.spaces_per_area_horizontal) && (y < this.spaces_per_area_horizontal));
 	},
 	
 	generateArea: function(horizPos, vertPos)

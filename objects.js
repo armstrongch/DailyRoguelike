@@ -22,6 +22,10 @@ var objects =
 			map.updateCharAtPosition(area_x, area_y, x, y, player.item);
 			player.item = this.objChar;
 		}
+		else
+		{
+			draw.infoText = this.desc + ".";
+		}
 	},
 	
 	new_object: function({
@@ -84,10 +88,19 @@ var objects =
 		this.list.push(
 			this.new_object({
 				char_param: "n",
-				desc_param: "s[n]owshoes: conserves energy when walking in fresh snow.",
+				desc_param: "s[n]owshoes: conserves energy when walking in fresh snow",
 				item_param: true,
 				item_name_param: "s[n]owshoes",
 				use_item_param: snowshoes.use_item,
+			}));
+			
+		this.list.push(
+			this.new_object({
+				char_param: "A",
+				desc_param: "[A]xe: chops down trees",
+				item_param: true,
+				item_name_param: "[A]xe",
+				use_item_param: axe.use_item,
 			}));
 			
 		this.list.push(
@@ -109,10 +122,24 @@ var objects =
 			
 		this.list.push(
 			this.new_object({
+				char_param: "T",
+				desc_param: "a [T]ree",
+			}));
+			
+		this.list.push(
+			this.new_object({
 				char_param: "f",
 				desc_param: "[f]ootprints",
 				walkable_param: true,
 				interact_param: footprints.interact
+			}));
+			
+		this.list.push(
+			this.new_object({
+				char_param: "w",
+				desc_param: "a pile of [w]ooden sticks",
+				walkable_param: true,
+				interact_param: wood.interact
 			}));
 			
 		this.list.push(
@@ -130,7 +157,7 @@ var objects =
 				desc_param: "[b]ush",
 				special_color_param: true,
 				color_param: draw.colors.green,
-			}));		
+			}));
 	},
 	
 	getObjectByChar: function(searchChar)

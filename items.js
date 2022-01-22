@@ -26,3 +26,18 @@ var snowshoes =
 		}
 	},
 };
+
+var axe =
+{
+	use_item: function(area_x, area_y, space_x, space_y, x_mod, y_mod)
+	{
+		if (map.space_in_area(space_x + x_mod, space_y + y_mod))
+		{
+			targetChar = map.getCharAtPosition(area_x, area_y, space_x + x_mod, space_y + y_mod);
+			if (targetChar == "T")
+			{
+				map.updateCharAtPosition(area_x, area_y, space_x + x_mod, space_y + y_mod, "w");
+			}
+		}
+	},
+};

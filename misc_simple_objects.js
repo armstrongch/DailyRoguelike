@@ -25,3 +25,13 @@ var berrybush =
 		map.updateCharAtPosition(area_x, area_y, x, y, "b");
 	},
 };
+
+var wood =
+{
+	interact: function(area_x, area_y, x, y)
+	{
+		player.wood.value = Math.min(player.wood.value + 1, player.wood.max);
+		draw.infoText = "picked up some [w]ood.";
+		map.updateCharAtPosition(area_x, area_y, x, y, "f");
+	},
+};

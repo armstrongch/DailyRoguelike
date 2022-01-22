@@ -16,7 +16,6 @@ var player =
 	move: function(x_mod, y_mod)
 	{
 		draw.infoText = "";
-		this.energy.value -= 3;
 		
 		currentSpaceChar = map.getCharAtPosition(
 			this.current_area.x, this.current_area.y,
@@ -90,6 +89,11 @@ var player =
 		{
 			draw.infoText += " snow reduces your body heat. ";
 			this.heat.value -= 1;
+		}
+		
+		if ((this.current_space.x == target_x) && (this.current_space.y == target_y))
+		{
+			this.energy.value -= 3;
 		}
 		
 		game.end_turn();

@@ -91,10 +91,9 @@ var player =
 			this.heat.value -= 1;
 		}
 		
-		if ((this.current_space.x == target_x) && (this.current_space.y == target_y))
-		{
-			this.energy.value -= 3;
-		}
+		this.energy.value -= 3;
+		//restore 2 energy when walking in footprints
+		//restore 3 energy when walking in fresh snow with snow shoes
 		
 		game.end_turn();
 	}

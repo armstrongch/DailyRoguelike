@@ -21,7 +21,7 @@ var snowshoes =
 			space_char = map.getCharAtPosition(area_x, area_y, space_x, space_y);
 			if (space_char != "f")
 			{
-				player.energy.value = Math.min(player.energy.value + 2, player.energy.max);
+				player.energy.value = Math.min(player.energy.value + 3, player.energy.max);
 			}
 		}
 	},

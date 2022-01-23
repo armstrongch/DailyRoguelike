@@ -8,6 +8,73 @@ var map =
 	
 	areas: [],
 	
+	generation: {
+		random_gen_array: [],
+		average_object_count: 5,
+		current_object_count: 0,
+		
+		total_object_counts: [
+			{objChar: "P", count: 0}, //firepit
+			{objChar: "T", count: 0}, //tree
+			{objChar: "w", count: 0}, //wood
+			{objChar: "B", count: 0}, //berry bush
+		],
+		
+		get_lowest_count_char: function()
+		{
+			var low_count = -1;
+			var low_char = " ";
+			var low_index = -1;
+			for (let i = 0; i < this.total_object_counts.length; i += 1)
+			{
+				if ((this.total_object_counts[i].count <= low_count)
+				|| (low_char == " "))
+				{
+					low_count = this.total_object_counts[i].count;
+					low_char = this.total_object_counts[i].objChar;
+					low_index = i;
+				}
+			}
+			this.total_object_counts[low_index].count += 1;
+			return low_char;
+		},
+		
+		get_random_char: function()
+		{
+			utility.shuffle(this.total_object_counts);
+			this.total_object_counts[0].count += 1;
+			return this.total_object_counts[0].objChar;
+		},
+		
+		build_random_gen_array: function()
+		{
+			this.random_gen_array = [];
+			for (let x = 1; x < map.spaces_per_area_horizontal - 1; x += 1)
+			{
+				for (let y = 1; y < map.spaces_per_area_vertical - 1; y += 1)
+				{
+					this.random_gen_array.push({x: x, y: y, objChar: " "});
+					utility.shuffle(this.random_gen_array);
+				}
+			}
+		},
+		
+		get_random_gen_array_char_at_position: function(x_pos, y_pos)
+		{
+			var return_char = " ";
+			for (let i = 0; i < this.random_gen_array.length; i += 1)
+			{
+				if ((this.random_gen_array[i].x == x_pos)
+				&& (this.random_gen_array[i].y == y_pos))
+				{
+					return_char = this.random_gen_array[i].objChar;
+					i = 999;
+				}
+			}
+			return return_char;
+		}
+	},
+	
 	generate: function()
 	{
 		player.current_area.x = 1 + Math.floor(Math.random()*(this.areas_per_map_horizontal-2));
@@ -43,10 +110,33 @@ var map =
 	generateArea: function(horizPos, vertPos)
 	{
 		var areaString = "";
+		this.generation.build_random_gen_array();
 		
-		if ((horizPos != player.current_area.x) && (vertPos != player.current_area.y))
+		if ((horizPos != player.current_area.x) || (vertPos != player.current_area.y))
 		{
-			//stuff to generate: fire pits, trees, wood, berry bushes, 
+			var area_gen_count = 0;
+			if (this.generation.current_object_count == 0)
+			{
+				this.generation.current_object_count = 1 + Math.floor(Math.random()*this.generation.average_object_count*2);
+				area_gen_count = this.generation.current_object_count
+			}
+			else
+			{
+				area_gen_count = this.generation.average_object_count*2 - this.generation.current_object_count;
+				this.generation.current_object_count = 0;
+			}
+			
+			for (let i = 0; i < area_gen_count; i += 1)
+			{
+				if (i == 0)
+				{
+					this.generation.random_gen_array[i].objChar = this.generation.get_lowest_count_char();
+				}
+				else
+				{
+					this.generation.random_gen_array[i].objChar = this.generation.get_random_char();
+				}
+			}
 		}
 		
 		for (let y = 0; y < this.spaces_per_area_vertical; y += 1)
@@ -62,7 +152,8 @@ var map =
 				}
 				else
 				{
-					areaString += " ";
+					//areaString += " ";
+					areaString += this.generation.get_random_gen_array_char_at_position(x, y);
 				}
 			}
 		}

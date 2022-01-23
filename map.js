@@ -96,10 +96,6 @@ var map =
 		this.updateCharAtPosition(player.current_area.x, player.current_area.y, 4, 6, "A");
 		this.updateCharAtPosition(player.current_area.x, player.current_area.y, 5, 6, "S");
 		this.updateCharAtPosition(player.current_area.x, player.current_area.y, 6, 6, "n");
-		
-		this.updateCharAtPosition(player.current_area.x, player.current_area.y, 4, 8, "T");
-		this.updateCharAtPosition(player.current_area.x, player.current_area.y, 5, 8, "T");
-		this.updateCharAtPosition(player.current_area.x, player.current_area.y, 6, 8, "T");
 	},
 	
 	space_in_area: function(x, y)

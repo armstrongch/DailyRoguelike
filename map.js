@@ -43,6 +43,12 @@ var map =
 	generateArea: function(horizPos, vertPos)
 	{
 		var areaString = "";
+		
+		if ((horizPos != player.current_area.x) && (vertPos != player.current_area.y))
+		{
+			//stuff to generate: fire pits, trees, wood, berry bushes, 
+		}
+		
 		for (let y = 0; y < this.spaces_per_area_vertical; y += 1)
 		{
 			for (let x = 0; x < this.spaces_per_area_horizontal; x += 1)

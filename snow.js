@@ -15,9 +15,9 @@ var snow =
 				&& (obj.space.y === space_y))
 			});
 			shovelledSpace.fade_counter -= 1;
-			if (shovelledSpace <= 0)
+			if (shovelledSpace.fade_counter <= 0)
 			{
-				var index = this.shovelledSpace.indexOf(shovelledSpace);
+				var index = this.shovelledSpaces.indexOf(shovelledSpace);
 				this.shovelledSpaces.splice(index, 1);
 			}
 			

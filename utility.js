@@ -15,6 +15,9 @@ var utility =
 				game.state = "overworld";
 				draw.everything();
 				break;
+			case "gameover":
+				location.reload();
+				break;
 		}
 	},
 	

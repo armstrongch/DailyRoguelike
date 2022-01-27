@@ -1,7 +1,7 @@
 var game = 
 {
 	state: "title",
-	//possible states: title, overworld
+	//possible states: title, overworld, gameover
 	
 	getCanvasInfo: function() {
 		return {
@@ -42,6 +42,7 @@ var game =
 	end_turn: function()
 	{
 		map.process_all();
+		player.check_gameover();
 		draw.everything();
 	},
 };

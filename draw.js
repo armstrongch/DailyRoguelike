@@ -22,6 +22,9 @@ var draw =
 			case "title":
 				this.draw_title();
 				break;
+			case "gameover":
+				this.draw_gameover();
+				break;
 			case "overworld":
 				this.draw_map();
 				$('#infoText').css('color', this.colors.white);
@@ -62,6 +65,30 @@ var draw =
 		text_to_draw.push("Click/Tap for Info");
 		text_to_draw.push("");
 		text_to_draw.push("Click/Tap to Continue");
+		for (let i = 0; i < text_to_draw.length; i += 1)
+		{
+			canvasInfo.ctx.fillText(text_to_draw[i], canvasInfo.width/2, canvasInfo.height*0.2 + fontSize*1.1*i);
+		}
+	},
+	
+	draw_gameover: function()
+	{
+		var canvasInfo = game.getCanvasInfo();
+		var fontSize = canvasInfo.width/15;
+		canvasInfo.ctx.font = Math.floor(fontSize) + "px Courier New";
+		canvasInfo.ctx.textAlign = "center";
+		canvasInfo.ctx.textBaseline = "middle";
+		canvasInfo.ctx.fillStyle = this.colors.purple;
+		
+		var text_to_draw = [];
+		text_to_draw.push("Game Over");
+		text_to_draw.push("");
+		text_to_draw.push("Body Heat: " + player.heat.value);
+		text_to_draw.push("Energy: " + player.energy.value);
+		text_to_draw.push("Collected Wood: " + player.wood.value);
+		text_to_draw.push("Collected Food: " + player.food.value);
+		text_to_draw.push("");
+		text_to_draw.push("Click/Tap to Restart");
 		for (let i = 0; i < text_to_draw.length; i += 1)
 		{
 			canvasInfo.ctx.fillText(text_to_draw[i], canvasInfo.width/2, canvasInfo.height*0.2 + fontSize*1.1*i);

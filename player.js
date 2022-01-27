@@ -96,5 +96,13 @@ var player =
 		//restore 3 energy when walking in fresh snow with snow shoes
 		
 		game.end_turn();
+	},
+	
+	check_gameover: function()
+	{
+		if ((this.heat.value <= 0) || (this.energy.value <= 0))
+		{
+			game.state = "gameover";
+		}
 	}
 };

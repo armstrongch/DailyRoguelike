@@ -35,3 +35,12 @@ var wood =
 		map.updateCharAtPosition(area_x, area_y, x, y, "f");
 	},
 };
+
+var river = 
+{
+	//this is also used by the ocean!
+	process: function(area_x, area_y, x, y)
+	{
+		snow.shovelSpace(area_x, area_y, x, y);
+	}
+};

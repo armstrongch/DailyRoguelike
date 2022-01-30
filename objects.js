@@ -74,6 +74,14 @@ var objects =
 				char_param: "W",
 				desc_param: "cold, unforgiving ocean [W]aves",
 				interact_param: ocean.interact,
+				process_param: river.process,
+			}));
+			
+		this.list.push(
+			this.new_object({
+				char_param: "r",
+				desc_param: "[r]iver",
+				process_param: river.process,
 			}));
 			
 		this.list.push(

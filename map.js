@@ -92,10 +92,60 @@ var map =
 			}
 		}
 		
+		this.create_river();
+		
 		this.updateCharAtPosition(player.current_area.x, player.current_area.y, 5, 4, "F");
 		this.updateCharAtPosition(player.current_area.x, player.current_area.y, 4, 6, "A");
 		this.updateCharAtPosition(player.current_area.x, player.current_area.y, 5, 6, "S");
 		this.updateCharAtPosition(player.current_area.x, player.current_area.y, 6, 6, "n");
+	},
+	
+	create_river: function()
+	{
+		river_horizontal = Math.random() >= 0.5;
+		
+		var river_area;
+		var river_space;
+		var area_coverage;
+		var space_coverage;
+		
+		if (river_horizontal)
+		{
+			river_area = this.areas_per_map_vertical/2;
+			if (player.current_area.y >= river_area)
+			{
+				river_area -= 1;
+			}
+			river_space = 2 + Math.floor(Math.random()*(this.spaces_per_area_vertical - 4));
+			area_coverage = this.areas_per_map_horizontal;
+			space_coverage = this.spaces_per_area_horizontal;
+		}
+		else
+		{
+			river_area = this.areas_per_map_horizontal/2;
+			if (player.current_area.x >= river_area)
+			{
+				river_area -= 1;
+			}
+			river_space = 2 + Math.floor(Math.random()*(this.spaces_per_area_horizontal - 4));
+			area_coverage = this.areas_per_map_vertical;
+			space_coverage = this.spaces_per_area_vertical;
+		}
+		
+		for (let a = 0; a < area_coverage; a += 1)
+		{
+			for (let s = 0; s < space_coverage; s += 1)
+			{
+				if (river_horizontal)
+				{
+					this.updateCharAtPosition(a, river_area, s, river_space, "r");
+				}
+				else
+				{
+					this.updateCharAtPosition(river_area, a, river_space, s, "r");
+				}
+			}
+		}
 	},
 	
 	space_in_area: function(x, y)

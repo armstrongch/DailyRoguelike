@@ -54,6 +54,7 @@ var objects =
 		}
 	},
 	
+	//reserved letters: @, W, r, S, n, A, F, P, T, f, w, B, b, g
 	initialize: function()
 	{
 		this.list.push(
@@ -76,7 +77,14 @@ var objects =
 				interact_param: ocean.interact,
 				process_param: river.process,
 			}));
-			
+		
+		this.list.push(
+			this.new_object({
+				char_param: "g",
+				desc_param: "a broken down brid[g]e",
+				interact_param: bridge.interact,
+			}));
+		
 		this.list.push(
 			this.new_object({
 				char_param: "r",

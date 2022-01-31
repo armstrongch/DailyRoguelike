@@ -44,3 +44,20 @@ var river =
 		snow.shovelSpace(area_x, area_y, x, y);
 	}
 };
+
+var bridge =
+{
+	interact: function(area_x, area_y, x, y)
+	{
+		if (player.wood.value >= 15)
+		{
+			player.wood.value -= 15;
+			draw.infoText = "you rebuilt the brid[g]e.";
+			map.updateCharAtPosition(area_x, area_y, x, y, " ");
+		}
+		else
+		{
+			draw.infoText = "you need at least 15 wood to rebuild the brid[g]e.";
+		}
+	},
+};

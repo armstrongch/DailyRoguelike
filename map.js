@@ -108,6 +108,8 @@ var map =
 		var river_space;
 		var area_coverage;
 		var space_coverage;
+		var bridge_area;
+		var bridge_space;
 		
 		if (river_horizontal)
 		{
@@ -119,6 +121,8 @@ var map =
 			river_space = 2 + Math.floor(Math.random()*(this.spaces_per_area_vertical - 4));
 			area_coverage = this.areas_per_map_horizontal;
 			space_coverage = this.spaces_per_area_horizontal;
+			bridge_area = Math.floor(Math.random()*this.areas_per_map_horizontal);
+			bridge_space = 3 + Math.floor(Math.random()*(this.spaces_per_area_horizontal-6));
 		}
 		else
 		{
@@ -130,6 +134,8 @@ var map =
 			river_space = 2 + Math.floor(Math.random()*(this.spaces_per_area_horizontal - 4));
 			area_coverage = this.areas_per_map_vertical;
 			space_coverage = this.spaces_per_area_vertical;
+			bridge_area = Math.floor(Math.random()*this.areas_per_map_vertical);
+			bridge_space = 3 + Math.floor(Math.random()*(this.spaces_per_area_vertical-6));
 		}
 		
 		for (let a = 0; a < area_coverage; a += 1)
@@ -138,11 +144,25 @@ var map =
 			{
 				if (river_horizontal)
 				{
-					this.updateCharAtPosition(a, river_area, s, river_space, "r");
+					if ((a == bridge_area) && (s == bridge_space))
+					{
+						this.updateCharAtPosition(a, river_area, s, river_space, "g");
+					}
+					else
+					{
+						this.updateCharAtPosition(a, river_area, s, river_space, "r");
+					}
 				}
 				else
 				{
-					this.updateCharAtPosition(river_area, a, river_space, s, "r");
+					if ((a == bridge_area) && (s == bridge_space))
+					{
+						this.updateCharAtPosition(river_area, a, river_space, s, "g");
+					}
+					else
+					{
+						this.updateCharAtPosition(river_area, a, river_space, s, "r");
+					}
 				}
 			}
 		}
